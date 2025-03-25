@@ -8,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 interface Client {
-  id: string;
+  
   foto: string;
   nip: string;
   nombre: string;
@@ -50,7 +50,7 @@ export class ClientsManagementComponent {
   // Lista inicial de clientes
   clients: Client[] = [
     {
-      id: '001',
+
       foto: 'assets/foto1.png',
       nip: 'E000001',
       nombre: 'Pablo Pérez',
@@ -60,7 +60,7 @@ export class ClientsManagementComponent {
       fechafin: '09/12/2025'
     },
     {
-      id: '002',
+
       foto: 'assets/foto2.png',
       nip: 'E000002',
       nombre: 'Ana López',
@@ -70,7 +70,7 @@ export class ClientsManagementComponent {
       fechafin: '14/01/2025'
     },
     {
-      id: '003',
+
       foto: 'assets/foto3.png',
       nip: 'E000003',
       nombre: 'Carlos García',
@@ -98,7 +98,7 @@ export class ClientsManagementComponent {
 
   // Cliente nuevo
   newClient: Client = {
-    id: '',
+
     foto: '',
     nip: '',
     nombre: '',
@@ -109,7 +109,7 @@ export class ClientsManagementComponent {
 
   // Cliente a editar
   editClientData: Client = {
-    id: '',
+
     foto: '',
     nip: '',
     nombre: '',
@@ -195,7 +195,7 @@ export class ClientsManagementComponent {
   closeAddClientModal() {
     this.isAddClientModalOpen = false;
     this.newClient = {
-      id: '',
+
       foto: '',
       nip: '',
       nombre: '',
@@ -259,7 +259,7 @@ export class ClientsManagementComponent {
   closeEditClientModal() {
     this.isEditClientModalOpen = false;
     this.editClientData = {
-      id: '',
+
       foto: '',
       nip: '',
       nombre: '',
@@ -272,7 +272,7 @@ export class ClientsManagementComponent {
   }
   updateClient() {
     if (this.selectedClient) {
-      const index = this.clients.findIndex(c => c.id === this.selectedClient!.id);
+      const index = this.clients.findIndex(c => c.nip === this.selectedClient!.nip);
       if (index !== -1) {
         // Si no se marca el checkbox, conservamos el nameuser anterior
         if (!this.modifyUsernameEdit) {
@@ -302,7 +302,7 @@ export class ClientsManagementComponent {
   }
   confirmDelete() {
     if (this.clientToDelete) {
-      this.clients = this.clients.filter(c => c.id !== this.clientToDelete!.id);
+      this.clients = this.clients.filter(c => c.nip !== this.clientToDelete!.nip);
       this.filteredClients = [...this.clients];
     }
     this.closeDeleteClientModal();
